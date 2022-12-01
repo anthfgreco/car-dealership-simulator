@@ -1,8 +1,8 @@
 # car-dealership-simulator
 
-<div align="center">
-    ![GitHub Last Commit](https://img.shields.io/github/last-commit/anthfgreco/car-dealership-simulator)
-</div>
+![GitHub Last Commit](https://img.shields.io/github/last-commit/anthfgreco/car-dealership-simulator)
+![GitHub Repo Size](https://img.shields.io/github/repo-size/anthfgreco/car-dealership-simulator)
+
 
 Work in progress...
 
