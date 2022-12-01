@@ -1,0 +1,2 @@
+& clear; 
+& 'C:\Program Files\Java\jdk1.8.0_201\bin\java.exe' '-cp' 'C:\Users\Anthony\AppData\Roaming\Code\User\workspaceStorage\3c0fbd2d8996a4b3e842a3be110a256f\redhat.java\jdt_ws\car-dealership-simulator_bb4d2992\bin' 'CarDealershipSimulator'
