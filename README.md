@@ -1,13 +1,18 @@
 # car-dealership-simulator
 
-Developed a command line Java application of a real world car dealership system that can keep inventory, sales, stats, of vehicles with filter and sort functions.
+Work in progress...
 
-To run simulator use these two commands:
-1. javac *.java
-2. java CarDealershipSimulator
+Currently is a command line Java application of a real world car dealership system that can keep inventory, sales, stats, of vehicles with filter and sort functions.
 
-<img src="https://github.com/anthfgreco/car_dealership_simulator/blob/main/Screenshot_1.png?raw=true"/>
-<img src="https://github.com/anthfgreco/car_dealership_simulator/blob/main/Screenshot_2.png?raw=true"/>
-<img src="https://github.com/anthfgreco/car_dealership_simulator/blob/main/Screenshot_3.png?raw=true"/>
+### Todo
 
+- [ ] Clean up Java code
+- [ ] Convert Java code to backend server w/ endpoints using Spring or Springboot
+- [ ] Create frontend using React+Vite+Tailwind
+- [ ] Database?
 
+<!--
+### Done ✓
+
+- [x] Create my first TODO.md
+-->
