@@ -28,42 +28,6 @@ public class ElectricCar extends Car {
     }
 
     /**
-     * Gets the current recharge time of the electric car.
-     * 
-     * @return the current recharge time
-     */
-    public int getrechargeTime() {
-        return rechargeTime;
-    }
-
-    /**
-     * Gets the current battery type of the electric car.
-     * 
-     * @return the current battery type
-     */
-    public String getbatteryType() {
-        return batteryType;
-    }
-
-    /**
-     * Sets the current recharge time of the electric car.
-     * 
-     * @param rechargeTime new recharge time
-     */
-    public void setrechargeTime(int rechargeTime) {
-        this.rechargeTime = rechargeTime;
-    }
-
-    /**
-     * Sets the current battery type of the electric car.
-     * 
-     * @param batteryType new recharge time
-     */
-    public void setbatteryType(String batteryType) {
-        this.batteryType = batteryType;
-    }
-
-    /**
      * Displays the electric car object in string format.
      * 
      * @return a string representation of the electric car object

@@ -31,125 +31,10 @@ public class Vehicle {
     }
 
     /**
-     * Gets the current manufacturer of the vehicle.
-     * 
-     * @return the current manufacturer
-     */
-    public String getmfr() {
-        return mfr;
-    }
-
-    /**
-     * Gets the current color of the vehicle.
-     * 
-     * @return the current color
-     */
-    public String getcolor() {
-        return color;
-    }
-
-    /**
-     * Gets the current power of the vehicle.
-     * 
-     * @return the current power
-     */
-    public int getpower() {
-        return power;
-    }
-
-    /**
-     * Gets the current number of wheels of the vehicle.
-     * 
-     * @return the current number of wheels
-     */
-    public int getnumWheels() {
-        return numWheels;
-    }
-
-    /**
-     * Gets the current ELECTRIC_MOTOR of the vehicle, 0 or 1.
-     * 
-     * @return the current ELECTRIC_MOTOR
-     */
-    public int getELECTRIC_MOTOR() {
-        return ELECTRIC_MOTOR;
-    }
-
-    /**
-     * Gets the current GAS_ENGINE of the vehicle, 0 or 1.
-     * 
-     * @return the current GAS_ENGINE
-     */
-    public int getGAS_ENGINE() {
-        return GAS_ENGINE;
-    }
-
-    /**
-     * Gets the current VIN of the vehicle, from 100 to 499
-     * 
-     * @return the current VIN
-     */
-    public int getVIN() {
-        return VIN;
-    }
-
-    /**
-     * Sets current manufacturer of vehicle to given parameter.
-     * 
-     * @param mfr new current manufacturer
-     */
-    public void setmfr(String mfr) {
-        this.mfr = mfr;
-    }
-
-    /**
-     * Sets current color of vehicle to given parameter.
-     * 
-     * @param color new current color
-     */
-    public void setcolor(String color) {
-        this.color = color;
-    }
-
-    /**
-     * Sets current power of vehicle to given parameter.
-     * 
-     * @param power new current power
-     */
-    public void setpower(int power) {
-        this.power = power;
-    }
-
-    /**
-     * Sets current number of wheels of vehicle to given parameter.
-     * 
-     * @param numWheels new current number of wheels
-     */
-    public void setnumWheels(int numWheels) {
-        this.numWheels = numWheels;
-    }
-
-    /**
-     * Sets current ELECTRIC_MOTOR of vehicle to given parameter, 0 or 1.
-     * 
-     * @param ELECTRIC_MOTOR new ELECTRIC_MOTOR
-     */
-    public void setELECTRIC_MOTOR(int ELECTRIC_MOTOR) {
-        this.ELECTRIC_MOTOR = ELECTRIC_MOTOR;
-    }
-
-    /**
-     * Sets current GAS_ENGINE of vehicle to given parameter, 0 or 1.
-     * 
-     * @param GAS_ENGINE new GAS_ENGINE
-     */
-    public void setGAS_ENGINE(int GAS_ENGINE) {
-        this.GAS_ENGINE = GAS_ENGINE;
-    }
-
-    /**
      * Tests to see if current vehicle object is equal to the other given vehicle
      * object.
+     * 
+     * This should really just be a simple VIN comparison.
      * 
      * @param other vehicle object that current vehicle object will be compared to
      * @return true; if both vehicle's manufacturers, power, and number of wheels
@@ -158,9 +43,9 @@ public class Vehicle {
      */
     public boolean equals(Object other) {
         Vehicle other1 = (Vehicle) other;
-        if (this.getmfr() == other1.getmfr() &&
-                this.getpower() == other1.getpower() &&
-                this.getnumWheels() == other1.getnumWheels()) {
+        if (this.mfr == other1.mfr &&
+                this.power == other1.power &&
+                this.numWheels == other1.numWheels) {
             return true;
         }
 

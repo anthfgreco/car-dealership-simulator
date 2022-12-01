@@ -1,11 +1,11 @@
 import java.util.*;
 
 public class Car extends Vehicle implements Comparable<Car> {
-    private Model model;
-    private int maxRange;
-    private double safetyRating;
-    private String AWD;
-    private double price;
+    public Model model;
+    public int maxRange;
+    public double safetyRating;
+    public String AWD;
+    public double price;
 
     /**
      * Constructs a car object with given parameters.
@@ -37,51 +37,6 @@ public class Car extends Vehicle implements Comparable<Car> {
     }
 
     /**
-     * Gets the current model of the car.
-     * 
-     * @return the current model
-     */
-    public Model getmodel() {
-        return model;
-    }
-
-    /**
-     * Gets the current AWD of the car, either "AWD" or "2WD".
-     * 
-     * @return the current AWD
-     */
-    public String getAWD() {
-        return AWD;
-    }
-
-    /**
-     * Gets the current price of the car.
-     * 
-     * @return the current price
-     */
-    public double getprice() {
-        return price;
-    }
-
-    /**
-     * Gets the current safety rating of the car, from 0 to 10.
-     * 
-     * @return the current safety rating
-     */
-    public double getsafetyRating() {
-        return safetyRating;
-    }
-
-    /**
-     * Gets the current max range of the car.
-     * 
-     * @return the current max range
-     */
-    public int getmaxRange() {
-        return maxRange;
-    }
-
-    /**
      * Displays the car object in string format.
      * 
      * @return a string representation of the car object
@@ -102,8 +57,8 @@ public class Car extends Vehicle implements Comparable<Car> {
     public boolean equals(Object other) {
         Car other1 = (Car) other;
         if (super.equals(other1) &&
-                this.getmodel() == other1.getmodel() &&
-                this.getAWD() == other1.getAWD()) {
+                this.model == other1.model &&
+                this.AWD == other1.AWD) {
             return true;
         }
         return false;
@@ -118,9 +73,9 @@ public class Car extends Vehicle implements Comparable<Car> {
      *         1; if current car price is greater than other car price
      */
     public int compareTo(Car other) {
-        if (this.getprice() < other.getprice()) {
+        if (this.price < other.price) {
             return -1;
-        } else if (this.getprice() > other.getprice()) {
+        } else if (this.price > other.price) {
             return 1;
         } else {
             return 0;
@@ -139,9 +94,9 @@ public class Car extends Vehicle implements Comparable<Car> {
  */
 class safetyRatingComparator implements Comparator<Car> {
     public int compare(Car a, Car b) {
-        if (a.getsafetyRating() < b.getsafetyRating()) {
+        if (a.safetyRating < b.safetyRating) {
             return -1;
-        } else if (a.getsafetyRating() > b.getsafetyRating()) {
+        } else if (a.safetyRating > b.safetyRating) {
             return 1;
         } else {
             return 0;
@@ -160,9 +115,9 @@ class safetyRatingComparator implements Comparator<Car> {
  */
 class maxRangeComparator implements Comparator<Car> {
     public int compare(Car a, Car b) {
-        if (a.getmaxRange() < b.getmaxRange()) {
+        if (a.maxRange < b.maxRange) {
             return -1;
-        } else if (a.getmaxRange() > b.getmaxRange()) {
+        } else if (a.maxRange > b.maxRange) {
             return 1;
         } else {
             return 0;

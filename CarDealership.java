@@ -50,7 +50,7 @@ public class CarDealership {
     public String buyCar(int userVIN) {
         Car car = null;
         for (Car tempcar : cars) {
-            if (tempcar.getVIN() == userVIN) {
+            if (tempcar.VIN == userVIN) {
                 car = tempcar;
                 break;
             }
@@ -65,7 +65,7 @@ public class CarDealership {
         date.set(Calendar.MONTH, r.nextInt(12));
         date.set(Calendar.DAY_OF_MONTH, r.nextInt(date.getActualMaximum(Calendar.DAY_OF_MONTH) + 1));
 
-        return dealershipAccountingSystem.add(date, car, salesPerson, "BUY", car.getprice());
+        return dealershipAccountingSystem.add(date, car, salesPerson, "BUY", car.price);
     }
 
     /**
@@ -85,7 +85,7 @@ public class CarDealership {
             return "Car was already returned, choose a valid transaction";
         } else {
             Transaction transaction = dealershipAccountingSystem.getTransaction(transactionID);
-            Calendar date = transaction.getdate();
+            Calendar date = transaction.date;
             Calendar newdate = new GregorianCalendar(date.get(Calendar.YEAR), date.get(Calendar.MONTH),
                     date.get(Calendar.DAY_OF_MONTH));
 
@@ -94,10 +94,10 @@ public class CarDealership {
                     .nextInt(1 + newdate.getActualMaximum(Calendar.DAY_OF_MONTH) - newdate.get(Calendar.DAY_OF_MONTH));
             newdate.add(Calendar.DAY_OF_MONTH, offset);
 
-            cars.add(transaction.getcar());
+            cars.add(transaction.car);
 
-            return dealershipAccountingSystem.add(newdate, transaction.getcar(), transaction.getsalesPerson(), "RET",
-                    transaction.gettransactionPrice());
+            return dealershipAccountingSystem.add(newdate, transaction.car, transaction.salesPerson, "RET",
+                    transaction.transactionPrice);
         }
 
     }
@@ -130,7 +130,7 @@ public class CarDealership {
     /**
      * Resets all filters by setting their values back to default values.
      */
-    public void FiltersClear() {
+    public void clearFilters() {
         electricFilter = false;
         AWDFilter = false;
         minPriceFilter = 0;
@@ -173,10 +173,10 @@ public class CarDealership {
         for (int i = 0; i < tempcars.size(); i++) {
             Car tempcar = tempcars.get(i);
 
-            if (!(electricFilter && tempcar.getGAS_ENGINE() == 1 ||
-                    AWDFilter && tempcar.getAWD().equals("2WD") ||
-                    tempcar.getprice() < minPriceFilter ||
-                    tempcar.getprice() > maxPriceFilter)) {
+            if (!(electricFilter && tempcar.GAS_ENGINE == 1 ||
+                    AWDFilter && tempcar.AWD.equals("2WD") ||
+                    tempcar.price < minPriceFilter ||
+                    tempcar.price > maxPriceFilter)) {
                 System.out.println(String.format("%02d", i) + " " + tempcar.display());
             }
         }

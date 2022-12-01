@@ -180,7 +180,7 @@ public class CarDealershipSimulator {
 
 				// User input "FCL", clears all filters
 				else if (newline.equals("FCL")) {
-					dealership.FiltersClear();
+					dealership.clearFilters();
 				}
 
 				// User input "FPR x y", where x and y are doubles, sets filter so x <= price <=

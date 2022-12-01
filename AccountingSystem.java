@@ -45,7 +45,7 @@ public class AccountingSystem {
      */
     public Transaction getTransaction(int id) {
         for (Transaction tempTransaction : transactionList) {
-            if (tempTransaction.getID() == id) {
+            if (tempTransaction.transactionID == id) {
                 return tempTransaction;
             }
         }
@@ -81,15 +81,15 @@ public class AccountingSystem {
         boolean isReturned = false;
 
         Transaction tempTransaction = this.getTransaction(transactionID);
-        Car tempCar = tempTransaction.getcar();
+        Car tempCar = tempTransaction.car;
 
-        if (tempTransaction.gettransactionType().equals("RET")) {
+        if (tempTransaction.transactionType.equals("RET")) {
             isReturned = true;
         }
 
         for (int i = 0; i < transactionList.size(); i++) {
             Transaction forLoopTransaction = transactionList.get(i);
-            if (tempCar.equals(forLoopTransaction.getcar()) && forLoopTransaction.gettransactionType().equals("RET")) {
+            if (tempCar.equals(forLoopTransaction.car) && forLoopTransaction.transactionType.equals("RET")) {
                 isReturned = true;
             }
 
@@ -115,8 +115,8 @@ public class AccountingSystem {
         String returnString = "Top Sales Member(s): ";
 
         for (Transaction tempTransaction : transactionList) {
-            String tempSalesPerson = tempTransaction.getsalesPerson();
-            String tempType = tempTransaction.gettransactionType();
+            String tempSalesPerson = tempTransaction.salesPerson;
+            String tempType = tempTransaction.transactionType;
 
             if (tempType.equals("BUY")) {
                 if (salesMap.containsKey(tempSalesPerson)) {
@@ -154,7 +154,7 @@ public class AccountingSystem {
                 "Chg. Time", "Battery Type");
 
         for (Transaction tempTransaction : transactionList) {
-            if (tempTransaction.getdate().get(Calendar.MONTH) == m) {
+            if (tempTransaction.date.get(Calendar.MONTH) == m) {
                 result += "\n" + tempTransaction.display();
             }
         }
@@ -178,8 +178,8 @@ public class AccountingSystem {
         String returnString = "";
 
         for (Transaction tempTransaction : transactionList) {
-            int month = tempTransaction.getdate().get(Calendar.MONTH);
-            String tempType = tempTransaction.gettransactionType();
+            int month = tempTransaction.date.get(Calendar.MONTH);
+            String tempType = tempTransaction.transactionType;
 
             if (tempType.equals("BUY")) {
                 if (monthMap.containsKey(month)) {
@@ -220,14 +220,14 @@ public class AccountingSystem {
         String highestSalesMonths = this.getTopMonths();
 
         for (Transaction tempTransaction : transactionList) {
-            if (tempTransaction.gettransactionType().equals("BUY")) {
+            if (tempTransaction.transactionType.equals("BUY")) {
                 carsSold++;
-                totalSales += tempTransaction.gettransactionPrice();
-                totalSalesNet += tempTransaction.gettransactionPrice();
+                totalSales += tempTransaction.transactionPrice;
+                totalSalesNet += tempTransaction.transactionPrice;
             }
-            if (tempTransaction.gettransactionType().equals("RET")) {
+            if (tempTransaction.transactionType.equals("RET")) {
                 carsReturned++;
-                totalSalesNet -= tempTransaction.gettransactionPrice();
+                totalSalesNet -= tempTransaction.transactionPrice;
             }
         }
         averageSalesPerMonth = totalSales / 12;

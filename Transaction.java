@@ -30,60 +30,6 @@ public class Transaction {
     }
 
     /**
-     * Gets the current transaction ID of the transaction, from 1 to 99.
-     * 
-     * @return the current transaction ID
-     */
-    public int getID() {
-        return this.transactionID;
-    }
-
-    /**
-     * Gets the current calendar object of the transaction.
-     * 
-     * @return the current date
-     */
-    public Calendar getdate() {
-        return this.date;
-    }
-
-    /**
-     * Gets the current car object of the transaction.
-     * 
-     * @return the current car
-     */
-    public Car getcar() {
-        return this.car;
-    }
-
-    /**
-     * Gets the current sales person of the transaction.
-     * 
-     * @return the current sales person
-     */
-    public String getsalesPerson() {
-        return this.salesPerson;
-    }
-
-    /**
-     * Gets the current transaction type of the transaction, either "BUY" or "RET".
-     * 
-     * @return the current transaction type
-     */
-    public String gettransactionType() {
-        return this.transactionType;
-    }
-
-    /**
-     * Gets the current price of the transaction.
-     * 
-     * @return the current transaction price
-     */
-    public double gettransactionPrice() {
-        return this.transactionPrice;
-    }
-
-    /**
      * Displays the transaction object in string format.
      * 
      * @return a string representation of the transaction object
