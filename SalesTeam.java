@@ -1,21 +1,7 @@
-import java.util.*;
-
 public class SalesTeam {
-    LinkedList<String> salesMembers;
-
-    /**
-     * Constructs a default sales team object.
-     * Initializes salesMembers linked list and adds six names to it.
-     */
-    public SalesTeam() {
-        this.salesMembers = new LinkedList<String>();
-        salesMembers.add("Anthony");
-        salesMembers.add("Luisa");
-        salesMembers.add("Matthew");
-        salesMembers.add("Nicole");
-        salesMembers.add("Sebastian");
-        salesMembers.add("Hanson");
-    }
+    String[] salesMembers = { "Anthony", "Nick", "John", "Michael", "James", "David", "Samantha", "Matthew", "Nicole",
+            "Sebastian", "Hanson",
+    };
 
     /**
      * Returns a random sales member from the salesMembers linked list.
@@ -23,9 +9,8 @@ public class SalesTeam {
      * @return salesMember at index r where r is a random integer between 0 and 5
      */
     public String randomMember() {
-        Random r = new Random();
-        int randomIndex = r.nextInt(6);
-        return salesMembers.get(randomIndex);
+        int index = (int) (Math.random() * salesMembers.length);
+        return salesMembers[index];
     }
 
     /**
@@ -35,11 +20,14 @@ public class SalesTeam {
      *         salesMembers linked list
      */
     public String display() {
-        String memberString = "Team:";
-        ListIterator<String> iterator = salesMembers.listIterator();
-        while (iterator.hasNext()) {
-            memberString += " " + iterator.next();
+        String memberString = "\nTeam:\n";
+        int i = 1;
+
+        for (String member : salesMembers) {
+            memberString += i + ".\t" + member + "\n";
+            i += 1;
         }
-        return "\n" + memberString + "\n";
+
+        return memberString;
     }
 }
