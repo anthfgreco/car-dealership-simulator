@@ -2,32 +2,31 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.PreparedStatement;
 
 public class DatabaseTest {
     public static void main(String[] args) {
         Connection connection = null;
         try {
-            // create a database connection
-            connection = DriverManager.getConnection("jdbc:sqlite:database.db");
-            Statement statement = connection.createStatement();
-            statement.setQueryTimeout(30); // set timeout to 30 sec.
-            String query = """
+            String sql = """
                     SELECT *
                     FROM price
-                    WHERE entry_price > 200000
+                    WHERE entry_price < ?
                     ORDER BY entry_price;
                     """;
-            ResultSet rs = statement.executeQuery(query);
+            // create a database connection
+            connection = DriverManager.getConnection("jdbc:sqlite:database.db");
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            String userPrice = "5000";
+            preparedStatement.setString(1, userPrice);
+            ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 // read the result set
                 System.out.println(rs.getString("Maker") + " " + rs.getString("Entry_price"));
                 // System.out.println("id = " + rs.getInt("id"));
             }
-
         } catch (SQLException e) {
-            // if the error message is "out of memory",
-            // it probably means no database file is found
+            // error message is "out of memory", probably means no database file is found
             System.err.println(e.getMessage());
         } finally {
             try {
