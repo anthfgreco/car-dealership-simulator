@@ -19,16 +19,16 @@ public class Controller {
     private static final String sql = """
             SELECT maker, genmodel, genmodel_id, adv_id, adv_year, adv_month, color, reg_year, bodytype, runned_miles, engin_size, gearbox, fuel_type, price, seat_num, door_num
             FROM ad
-            WHERE maker LIKE ?
-            ORDER BY price DESC
-            LIMIT 50 OFFSET 0;
+            ORDER BY price ASC
+            LIMIT 50 OFFSET ?;
                     """;
 
     @GetMapping("/")
-    public List<Object> greeting(@RequestParam(value = "maker", defaultValue = "") String maker) {
+    public List<Object> pageInventory(@RequestParam(value = "page", defaultValue = "1") String page) {
+        String offset = Integer.toString((Integer.parseInt(page) - 1) * 50);
         return jdbcTemplate.query(
                 sql,
-                ps -> ps.setString(1, maker),
+                ps -> ps.setString(1, offset),
                 (rs, rowNum) -> {
                     // Create an object to hold the data from all of the columns
                     Map<String, Object> row = new HashMap<>();

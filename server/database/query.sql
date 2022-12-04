@@ -74,10 +74,10 @@ HAVING COUNT(*) > 1;
 */
 
 -- Display used car listings
-SELECT maker, genmodel, genmodel_id, adv_year, adv_month, color, reg_year, bodytype, runned_miles, engin_size, gearbox, fuel_type, price, seat_num, door_num
+SELECT maker, genmodel, genmodel_id, adv_id, adv_year, adv_month, color, reg_year, bodytype, runned_miles, engin_size, gearbox, fuel_type, price, seat_num, door_num
 FROM ad
-WHERE maker LIKE "mitsubishi"
-LIMIT 50 OFFSET 0;
+ORDER BY price
+LIMIT 50 OFFSET 250000;
 
 
 
