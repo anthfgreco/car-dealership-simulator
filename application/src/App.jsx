@@ -9,6 +9,21 @@ function App() {
   const [pageData, setPageData] = useState([]);
 
   useEffect(() => {
+    setSearchParams({
+      page: "1",
+    });
+  }, []);
+
+  /*
+  // No search params, mainly covers root page load
+  if (searchParams.get("page") == null) {
+    setSearchParams({
+      page: "1",
+    });
+  }
+  */
+
+  useEffect(() => {
     axios
       .get("/api", {
         params: searchParams,
@@ -19,14 +34,8 @@ function App() {
   }, [searchParams]);
 
   function decrementPage() {
-    // No search params, mainly covers root page load
-    if (searchParams.get("page") == null) {
-      setSearchParams({
-        page: "1",
-      });
-    }
     // Don't go below page 1
-    else if (searchParams.get("page") == "1") {
+    if (searchParams.get("page") == "1") {
       return;
     }
     // Decrement page
@@ -38,18 +47,10 @@ function App() {
   }
 
   function incrementPage() {
-    // No search params, mainly covers root page load
-    if (searchParams.get("page") == null) {
-      setSearchParams({
-        page: "1",
-      });
-    }
     // Increment page
-    else {
-      setSearchParams({
-        page: String(parseInt(searchParams.get("page")) + 1),
-      });
-    }
+    setSearchParams({
+      page: String(parseInt(searchParams.get("page")) + 1),
+    });
   }
 
   return (
