@@ -14,6 +14,8 @@ DROP TABLE IF EXISTS "sales";
 
 DROP TABLE IF EXISTS "trim";
 
+DROP INDEX IF EXISTS "price_index";
+
 CREATE TABLE "basic"(
     "Automaker" TEXT,
     "Automaker_ID" TEXT,
@@ -123,3 +125,6 @@ WHERE
 -- Necessary to reduce size
 -- Removes 100MB from previous step
 VACUUM;
+
+-- Index reduces time of queries with high offsets from seconds to near instant
+CREATE INDEX price_index ON ad (price);

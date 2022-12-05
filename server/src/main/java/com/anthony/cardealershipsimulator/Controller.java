@@ -55,4 +55,9 @@ public class Controller {
                     return row;
                 });
     }
+
+    @GetMapping("/test")
+    public String team(@RequestParam(value = "page", defaultValue = "1") String page) {
+        return page;
+    }
 }

@@ -8,21 +8,16 @@ function App() {
   let [searchParams, setSearchParams] = useSearchParams();
   const [pageData, setPageData] = useState([]);
 
+  // Set default search params
   useEffect(() => {
-    setSearchParams({
-      page: "1",
-    });
+    if (searchParams.get("page") == null) {
+      setSearchParams({
+        page: "1",
+      });
+    }
   }, []);
 
-  /*
-  // No search params, mainly covers root page load
-  if (searchParams.get("page") == null) {
-    setSearchParams({
-      page: "1",
-    });
-  }
-  */
-
+  // Query backend
   useEffect(() => {
     axios
       .get("/api", {
