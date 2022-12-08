@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import "./App.css";
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 import Table from "./Table";
+import ContactSellerForm from "./ContactSellerForm";
 
 function App() {
   let [searchParams, setSearchParams] = useSearchParams();
@@ -49,7 +49,8 @@ function App() {
   }
 
   return (
-    <div className="App bg-slate-200 p-10">
+    <div className="App m-auto h-full w-full bg-slate-200">
+      <ContactSellerForm />
       <h1 className="text-4xl font-bold">Title</h1>
       <div className="">
         <button onClick={() => decrementPage()}>Page Back</button>
